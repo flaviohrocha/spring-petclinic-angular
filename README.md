@@ -45,8 +45,12 @@ docker build -t spring-petclinic-angular:latest .
 Then you will be able to use it as follows:
 
 ```
-docker run --rm -p 8080:8080 spring-petclinic-angular:latest
+docker run --rm -p 8080:8080 \
+  -e REST_API_URL=http://localhost:9966/petclinic/api/ \
+  spring-petclinic-angular:latest
 ```
+
+`REST_API_URL` is read when the container starts, so you can change the backend URL without rebuilding the image. The URL must be reachable by the user's browser. With Docker Compose, set `REST_API_URL` in the shell or an `.env` file; the default is `http://localhost:9966/petclinic/api/`.
 
 ## Documentation
 

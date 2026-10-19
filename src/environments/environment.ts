@@ -21,7 +21,9 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
+import {getRuntimeApiUrl} from '../runtime-config';
+
 export const environment = {
   production: false,
-  REST_API_URL: 'http://localhost:9966/petclinic/api/'
+  REST_API_URL: getRuntimeApiUrl() ?? 'http://localhost:9966/petclinic/api/'
 };

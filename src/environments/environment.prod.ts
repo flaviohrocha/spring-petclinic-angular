@@ -20,7 +20,9 @@
  * @author Vitaliy Fedoriv
  */
 
+import {getRuntimeApiUrl} from '../runtime-config';
+
 export const environment = {
   production: true,
-  REST_API_URL: 'http://localhost:9966/petclinic/api/'
+  REST_API_URL: getRuntimeApiUrl() ?? 'http://localhost:9966/petclinic/api/'
 };
